@@ -4,16 +4,17 @@ import db_init
 
 def create_msg():
     if db_init.find_new() != []:
-        i = 0
+
         msgtext = 'Hello, \n\n'
 
-        for newrecord in db_init.find_new():
-            i+=1
+        for id, newrecord in enumerate(db_init.find_new(),1):
+
             msgtext += "{}. Title: {}\nDate: {}\nSalary: " \
-                           "{}\nAdvertisement: {}...\nLink: {}\n\n\n".format(i, newrecord[1], newrecord[2],
+                           "{}\nAdvertisement: {}...\nLink: {}\n\n\n".format(id, newrecord[1], newrecord[2],
                                                                                 newrecord[3],newrecord[4][0:60],
                                                                                 newrecord[5])
         return send_email(msgtext)
+
 
 
 def send_email(fullMsg):

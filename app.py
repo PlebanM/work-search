@@ -5,8 +5,6 @@ import db_init
 import send_email
 
 
-
-
 def search_url(search='python'): #full web scraping
 
     site = 'http://www.rzeszowiak.pl/Praca-Zatrudnie-3040011505'
